@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const [updated] = await Tag.update(req.body, { where: id });
+    const [updated] = await Tag.update(req.body, { where: { id }});
 
     if (updated) {
       const updatedTags = await Tag.findByPk(id);
